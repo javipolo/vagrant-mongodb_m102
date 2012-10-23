@@ -13,16 +13,16 @@ vmhostname = "mongo"
 
 # Levantamos la VM
 Vagrant::Config.run do |vmconfig|
-  vmconfig.vm.define vmname do |config|
-    config.vm.box = "precise64"
-    config.vm.host_name = vmhostname
-    config.vm.network :bridged, { :mac => mac } if defined? mac
-    config.vm.network :hostonly, ip if defined? ip
-    config.vm.customize ["modifyvm", :id, "--memory", memory] if defined? memory
-    config.vm.customize ["modifyvm", :id, "--cpus", cpus] if defined? cpus
-    config.vm.provision :puppet, :module_path => "puppet/modules" do |puppet|
-      puppet.manifests_path = "puppet/manifests"
-      puppet.manifest_file  = "base.pp"
+    vmconfig.vm.define vmname do |config|
+        config.vm.box = "precise64"
+        config.vm.host_name = vmhostname
+        config.vm.network :bridged, { :mac => mac } if defined? mac
+        config.vm.network :hostonly, ip if defined? ip
+        config.vm.customize ["modifyvm", :id, "--memory", memory] if defined? memory
+        config.vm.customize ["modifyvm", :id, "--cpus", cpus] if defined? cpus
+        config.vm.provision :puppet, :module_path => "puppet/modules" do |puppet|
+            puppet.manifests_path = "puppet/manifests"
+            puppet.manifest_file  = "base.pp"
+        end
     end
-  end
 end
