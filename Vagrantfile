@@ -20,9 +20,9 @@ Vagrant::Config.run do |vmconfig|
     config.vm.network :hostonly, ip if defined? ip
     config.vm.customize ["modifyvm", :id, "--memory", memory] if defined? memory
     config.vm.customize ["modifyvm", :id, "--cpus", cpus] if defined? cpus
-#    config.vm.provision :puppet, :module_path => "puppet/modules" do |puppet|
-#      puppet.manifests_path = "puppet/manifests"
-#      puppet.manifest_file  = "base.pp"
-#    end
+    config.vm.provision :puppet, :module_path => "puppet/modules" do |puppet|
+      puppet.manifests_path = "puppet/manifests"
+      puppet.manifest_file  = "base.pp"
+    end
   end
 end
