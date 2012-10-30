@@ -5,7 +5,7 @@ memory = 1024
 #cpus = 2
 
 # IP Para :hostonly networking (solo accesible desde el desktop pero no desde la red)
-#ip = "10.11.12.13"
+ip = "10.10.10.5"
 # Direccion MAC para :bridged networking (la VM pilla IP por DHCP y es accesible via red)
 #mac = "BEBEBEEFDEAD"
 vmname = "mongo.forest.drslump.org"
