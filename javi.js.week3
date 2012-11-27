@@ -1,0 +1,25 @@
+/*
+function redux(key,values){
+    var result: 0;
+    values.forEach(function(value) {
+    result.pitt += values.pitt;
+    result.phill += values.phill;
+    });
+    return result;
+}
+*/
+
+function redux(key,values){
+    var total = 0;
+    for(var i in values){
+      total += values[i];
+    }
+    return total;
+}
+
+function emit (k,v){
+    print("emit");
+    print("  k:" + k + " v:" + tojson(v));
+}
+
+
