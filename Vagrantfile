@@ -5,7 +5,7 @@ memory = 1024
 #cpus = 2
 
 # IP Para :hostonly networking (solo accesible desde el desktop pero no desde la red)
-ip = "10.10.10.5"
+# ip = "10.10.10.5"
 # Direccion MAC para :bridged networking (la VM pilla IP por DHCP y es accesible via red)
 #mac = "BEBEBEEFDEAD"
 vmname = "mongo.forest.drslump.org"
@@ -15,6 +15,7 @@ vmhostname = "mongo"
 Vagrant::Config.run do |vmconfig|
     vmconfig.vm.define vmname do |config|
         config.vm.box = "precise64"
+        config.vm.box_url = "http://files.vagrantup.com/precise64.box"
         config.vm.host_name = vmhostname
         config.vm.network :bridged, { :mac => mac } if defined? mac
         config.vm.network :hostonly, ip if defined? ip
